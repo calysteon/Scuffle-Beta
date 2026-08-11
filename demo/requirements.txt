@@ -1,0 +1,5 @@
+# scuffle.py, send_and_verify.py, and gen_packet.py use only the Python standard library
+# (socket, struct, subprocess). No third-party packages are required to run the reproduction.
+#
+# The setup step downloads the target binary over HTTPS with urllib (stdlib) as well.
+# Python 3.8+ on Windows.

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 480" font-family="Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="hav" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8FA7C4"/><stop offset="1" stop-color="#566B86"/>
+    </linearGradient>
+    <filter id="hsh" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="6" stdDeviation="14" flood-color="#0F1419" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+  <rect width="1240" height="480" fill="#FFFFFF"/>
+
+  <!-- caption -->
+  <text x="620" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#14171C">A stack trace on social media, plus a low-parameter model, becomes a proof of concept that reproduces the crash.</text>
+
+  <!-- ============ LEFT: the posted stack trace ============ -->
+  <rect x="24" y="60" width="372" height="376" rx="16" fill="#FFFFFF" stroke="#E1E8ED" filter="url(#hsh)"/>
+  <circle cx="66" cy="108" r="22" fill="url(#hav)"/>
+  <text x="98" y="104" font-size="16.5" font-weight="700" fill="#0F1419">User</text>
+  <text x="98" y="124" font-size="12.5" fill="#536471">@scuffle_beta &#183; 2h</text>
+  <text x="356" y="102" font-size="18" font-weight="700" fill="#1D9BF0" text-anchor="end">&#120143;</text>
+  <text x="40" y="160" font-size="14" fill="#0F1419">old Windows VM, the Message Queuing</text>
+  <text x="40" y="181" font-size="14" fill="#0F1419">service just crashes. what is this?</text>
+
+  <rect x="40" y="200" width="340" height="182" rx="11" fill="#0D1117" stroke="#21262D"/>
+  <circle cx="60" cy="222" r="4.5" fill="#FF5F56"/><circle cx="75" cy="222" r="4.5" fill="#FFBD2E"/><circle cx="90" cy="222" r="4.5" fill="#27C93F"/>
+  <text x="366" y="226" font-size="10" fill="#6E7681" text-anchor="end" font-family="monospace">WinDbg</text>
+  <g font-family="'SF Mono',Consolas,monospace" font-size="12">
+    <text x="58" y="256" fill="#FF7B72">Access violation - code c0000005</text>
+    <text x="58" y="284" fill="#C9D1D9"><tspan fill="#79C0FF">mqqm</tspan>!CQmPacket::CQmPacket+0x1e7</text>
+    <text x="58" y="306" fill="#C9D1D9"><tspan fill="#79C0FF">mqqm</tspan>!QmpPacketReceive+0x2c4</text>
+    <text x="58" y="328" fill="#C9D1D9"><tspan fill="#79C0FF">mqsvc</tspan>!InitializeQm+0x3f2</text>
+  </g>
+  <text x="210" y="368" text-anchor="middle" font-size="11" fill="#6E7681" font-family="monospace">a stack trace, posted publicly</text>
+
+  <!-- arrow 1 -->
+  <path d="M404 248 h64 m-14 -9 l14 9 l-14 9" fill="none" stroke="#9AA1AB" stroke-width="3"/>
+
+  <!-- ============ MIDDLE: the engine ============ -->
+  <rect x="484" y="120" width="272" height="256" rx="16" fill="#EAF3FB" stroke="#BBD8F2"/>
+  <text x="620" y="154" text-anchor="middle" font-size="15.5" font-weight="800" fill="#0A4F97">small open-weight model</text>
+  <text x="620" y="175" text-anchor="middle" font-size="11" fill="#5B6570">~1.3B params, in a deterministic harness</text>
+  <g font-size="12.5" font-weight="700">
+    <rect x="516" y="192" width="208" height="27" rx="8" fill="#FFFFFF" stroke="#BBD8F2"/><text x="620" y="210" text-anchor="middle" fill="#0A4F97">Localize</text>
+    <rect x="516" y="226" width="208" height="27" rx="8" fill="#FFFFFF" stroke="#BBD8F2"/><text x="620" y="244" text-anchor="middle" fill="#0A4F97">Understand</text>
+    <rect x="516" y="260" width="208" height="27" rx="8" fill="#FFFFFF" stroke="#BBD8F2"/><text x="620" y="278" text-anchor="middle" fill="#0A4F97">Retrieve</text>
+    <rect x="516" y="294" width="208" height="27" rx="8" fill="#FFFFFF" stroke="#BBD8F2"/><text x="620" y="312" text-anchor="middle" fill="#0A4F97">Value</text>
+    <rect x="516" y="328" width="208" height="27" rx="8" fill="#E7F6EF" stroke="#BFE6D3"/><text x="620" y="346" text-anchor="middle" fill="#0E8F5C">Verify</text>
+  </g>
+
+  <!-- arrow 2 -->
+  <path d="M764 248 h64 m-14 -9 l14 9 l-14 9" fill="none" stroke="#9AA1AB" stroke-width="3"/>
+
+  <!-- ============ RIGHT: the reproducing PoC ============ -->
+  <rect x="844" y="60" width="372" height="376" rx="16" fill="#0D1117" stroke="#21262D" filter="url(#hsh)"/>
+  <circle cx="868" cy="90" r="4.5" fill="#FF5F56"/><circle cx="883" cy="90" r="4.5" fill="#FFBD2E"/><circle cx="898" cy="90" r="4.5" fill="#27C93F"/>
+  <text x="1192" y="94" font-size="10" fill="#6E7681" text-anchor="end" font-family="monospace">reproduction</text>
+  <g font-family="'SF Mono',Consolas,monospace" font-size="13">
+    <text x="866" y="140" fill="#C9D1D9">$ python scuffle.py</text>
+    <text x="866" y="172" fill="#8B949E">[5 VERIFY] live MSMQ</text>
+    <text x="866" y="192" fill="#8B949E">127.0.0.1:1801</text>
+    <text x="866" y="228" fill="#C9D1D9">length = 0x8000000</text>
+    <text x="866" y="252" fill="#C9D1D9">mqsvc 4812 -&gt; <tspan fill="#FF7B72" font-weight="700">DOWN</tspan></text>
+    <text x="866" y="300" fill="#3FB950" font-weight="700">*** CRASH ***</text>
+  </g>
+  <text x="866" y="352" fill="#3FB950" font-weight="800" font-size="27" font-family="'SF Mono',Consolas,monospace">REPRODUCED</text>
+  <text x="1030" y="404" text-anchor="middle" font-size="11" fill="#6E7681" font-family="monospace">a PoC that reproduces the crash</text>
+</svg>

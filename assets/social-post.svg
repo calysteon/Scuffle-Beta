@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" font-family="Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="av2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8FA7C4"/><stop offset="1" stop-color="#566B86"/>
+    </linearGradient>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="112%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#0F1419" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="660" fill="#F7F9FA"/>
+  <rect x="24" y="20" width="852" height="620" rx="20" fill="#FFFFFF" stroke="#E1E8ED" filter="url(#sh)"/>
+
+  <!-- header -->
+  <circle cx="82" cy="82" r="30" fill="url(#av2)"/>
+  <text x="128" y="76" font-size="21" font-weight="700" fill="#0F1419">User</text>
+  <text x="128" y="101" font-size="15.5" fill="#536471">@scuffle_beta &#183; 2h</text>
+  <text x="820" y="70" font-size="26" font-weight="700" fill="#1D9BF0" text-anchor="end">&#120143;</text>
+
+  <!-- body -->
+  <text x="52" y="152" font-size="18.5" fill="#0F1419">spun up an old Windows 11 VM to poke around and the Message</text>
+  <text x="52" y="180" font-size="18.5" fill="#0F1419">Queuing service just crashes. one packet and mqsvc is gone.</text>
+  <text x="52" y="208" font-size="18.5" fill="#0F1419">anyone know what this is?</text>
+
+  <!-- attached "screenshot": a dark crash pane -->
+  <rect x="52" y="232" width="796" height="286" rx="14" fill="#0D1117" stroke="#21262D"/>
+  <circle cx="76" cy="258" r="5.5" fill="#FF5F56"/><circle cx="94" cy="258" r="5.5" fill="#FFBD2E"/><circle cx="112" cy="258" r="5.5" fill="#27C93F"/>
+  <text x="828" y="263" font-size="12" fill="#6E7681" text-anchor="end" font-family="monospace">WinDbg &#8212; mqsvc.exe</text>
+
+  <g font-family="'SF Mono',Consolas,monospace" font-size="14.5">
+    <text x="74" y="300" fill="#8B949E">0:012&gt; g</text>
+    <text x="74" y="326" fill="#FF7B72">(2f8c.1a44): Access violation - code c0000005 (first chance)</text>
+    <text x="74" y="352" fill="#6E7681">First chance exceptions are reported before any handler.</text>
+    <text x="74" y="386" fill="#C9D1D9"><tspan fill="#79C0FF">mqqm</tspan>!CQmPacket::CQmPacket+0x1e7</text>
+    <text x="74" y="410" fill="#C9D1D9"><tspan fill="#79C0FF">mqqm</tspan>!QmpPacketReceive+0x2c4</text>
+    <text x="74" y="434" fill="#C9D1D9"><tspan fill="#79C0FF">mqqm</tspan>!CReceiveSection::HandlePacket+0x91</text>
+    <text x="74" y="458" fill="#C9D1D9"><tspan fill="#79C0FF">mqsvc</tspan>!InitializeQm+0x3f2</text>
+    <text x="74" y="492" fill="#6E7681">rax=0000000000000000  rip=00007ff9`b41c81e7</text>
+  </g>
+
+  <!-- footer -->
+  <g fill="#536471" font-size="14.5">
+    <path d="M120 566 a11 9 0 1 0 0.01 0 M120 575 l-6 8 v-8 z" fill="none" stroke="#536471" stroke-width="1.8"/>
+    <text x="150" y="571">47</text>
+    <path d="M300 560 h14 v10 M316 570 l-5 -5 M316 570 l5 -5 M330 578 h-14 v-10 M314 568 l5 5 M314 568 l-5 5" fill="none" stroke="#536471" stroke-width="1.8"/>
+    <text x="348" y="571">210</text>
+    <path d="M510 566 c-2 -6 -12 -6 -12 1 c0 6 12 11 12 11 c0 0 12 -5 12 -11 c0 -7 -10 -7 -12 -1 z" fill="none" stroke="#536471" stroke-width="1.8"/>
+    <text x="536" y="571">1.3K</text>
+    <path d="M720 560 h18 v20 l-9 -6 l-9 6 z" fill="none" stroke="#536471" stroke-width="1.8"/>
+  </g>
+</svg>
